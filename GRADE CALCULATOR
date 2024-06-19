@@ -1,0 +1,50 @@
+import java.util.*;
+public class GradeCalculator
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number of students");
+        int a=sc.nextInt();
+        String name[]=new String[a];
+        double maths[]=new double[a];
+        double physics[]=new double[a];
+        double chemistry[]=new double[a];
+        double biology[]=new double[a];
+        double totalmarks[]=new double[a];
+        double percentage[]=new double[a];
+        char grade[]=new char[a];
+        for(int i=0;i<a;i++)
+        {
+        System.out.println("Enter the name of  the student ,marks of maths , physics ,chemistry and biology");
+        name[i]=sc.next();
+        maths[i]=sc.nextDouble();
+        physics[i]=sc.nextDouble();
+        chemistry[i]=sc.nextDouble();
+        biology[i]=sc.nextDouble();
+        totalmarks[i]=maths[i]+physics[i]+chemistry[i]+biology[i];
+        percentage[i]=(totalmarks[i]/400.0)*100.0;
+        if(percentage[i]>=80)
+        {
+            grade[i]='A';
+        }
+        else if(percentage[i]>=60 && percentage[i]<80)
+        {
+            grade[i]='B';
+        } 
+        else if(percentage[i]>=40 && percentage[i]<60)
+        {
+             grade[i]='C';
+        }
+        else
+        {
+             grade[i]='D';
+        }
+    }
+    System.out.println("Name\t"+"Total marks\t"+"Percentage\t"+"Grade");
+    for(int i=0;i<a;i++)
+        {
+        System.out.println(name[i]+"\t"+totalmarks[i]+"\t\t"+percentage[i]+"\t\t"+grade[i]);
+    }
+}
+}
