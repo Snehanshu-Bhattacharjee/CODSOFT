@@ -1,0 +1,83 @@
+class UserData
+{
+    static double amt;
+    long accountno;
+    String name;
+    UserData()
+    {
+        amt=60000.0;
+        accountno=0112345670;
+        name="Snehanshu Bhattacharjee";
+    }
+    
+}
+
+import java.util.*;
+public class ATM extends UserData
+{
+    Scanner sc=new Scanner(System.in);
+    double a;
+    ATM()
+    {
+       super();
+       
+    }
+    void deposit(double amount)
+    {
+        System.out.println("Enter the amount to deposit ");
+        a=sc.nextDouble();
+        amt=a+amount;
+        System.out.println("The account holder name is "+name);
+        System.out.println("The account number is "+accountno);
+        System.out.println("The amount deposited is "+a);
+        System.out.println("the total amount in the account is "+amt);
+    }
+    void withdraw(double amount)
+    {
+        System.out.println("Enter the amount to withdraw ");
+        a=sc.nextDouble();
+        if(amount<a||amount<=1000.0)
+        {
+        System.out.println("Insufficient balance you must keep minimum of Rs1000 in the account");
+        return;
+        }
+        amt=amount-a;
+        System.out.println("The account holder name is "+name);
+        System.out.println("The account number is "+accountno);
+        System.out.println("The amount withdrawn is "+a);
+        System.out.println("The total amount in the account is "+amt);
+    }
+    void checkBalance()
+    {
+        System.out.println("The account holder name is "+name);
+        System.out.println("The account number is "+accountno);
+        System.out.println("The Total amount in the account is "+amt);
+    }
+    public static void main()
+    {
+        Scanner sc=new Scanner(System.in);
+        ATM ob=new ATM();
+        System.out.println("Enter 1 to deposit money\n"+"Enter 2 to withdraw money\n"+"Enter 3 to checkbalance\n"+"Enter 4 to exit");
+        int ind=sc.nextInt();
+        switch(ind)
+        {
+        case 1:
+            ob.deposit(amt);
+            break;
+        case 2:
+            ob.withdraw(amt);
+            break; 
+        case 3:
+            ob.checkBalance();
+            break;
+        case 4:
+            System.exit(0); 
+            break;
+        default:
+            System.out.println("Wrong choice");
+        
+        }
+            
+        
+    }
+}
