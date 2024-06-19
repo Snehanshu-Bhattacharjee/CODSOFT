@@ -1,0 +1,39 @@
+import java.util.*;
+public class NumberGussingGame
+{
+  public void game()
+  {
+      Scanner sc=new Scanner(System.in);
+      int a,b,c=100;
+      System.out.println("In the number gussing game you have to guess the number and you have 5 attempts to play");
+      for(int i=1;i<=5;i++)
+      {
+      System.out.println("Enter any number between 1 to 100");
+      a=sc.nextInt();
+      b=(int)(Math.random()*100);
+      if(a==b)
+      {
+          System.out.println("The number is found ");
+          System.out.println("your score is "+c+"percentage");
+          c=c-20;
+          return;
+      }
+      else if(a>b)
+      System.out.println("The number you have gussed is too high");
+      else 
+      System.out.println("The number you have gussed is too low");
+    }
+}
+ public static void main(String args[])
+ {
+     Scanner sc=new Scanner(System.in);
+     NumberGussingGame ob= new NumberGussingGame();
+     int a;
+     do
+     {
+     ob.game();
+     System.out.println("Enter 1 to play again or enter any number to stop");
+     a=sc.nextInt();
+    }while(a==1);
+ }
+}
